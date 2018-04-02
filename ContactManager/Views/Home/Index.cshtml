@@ -1,0 +1,118 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" type="image/x-icon" href="~/favicon.ico">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- Fontawesome CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="~/css/styles.css">
+
+    <title>Contacts Manager</title>
+</head>
+<body>
+    <nav class="navbar navbar-light bg-light justify-content-center">
+        <span class="navbar-brand mb-0 h1">Contacts Manager</span>
+    </nav>
+
+    <div class="container">
+        <div class="row mt-4">
+            <div class="col-md-3 offset-md-9"><button onclick="clearForm()" class="btn btn-primary" type="button" data-toggle="modal" data-target="#addUserModal"> Add New</button></div>
+        </div>
+        <table class="table  mt-1" id="contacts-table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Mobile</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Address</th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+        <div class="empty-msg">
+            <div style="display: flex; justify-content: center;">
+                No contacts available. Please add a new contact by pressing the 'Add New' button
+            </div>
+
+        </div>
+        <div class="spinner-wrap">
+            <div style=" display: flex; justify-content: center; ">
+                <i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i>
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- add Contact modal -->
+    <div id="addUserModal" class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <form>
+                    <div class="modal-header">
+                        <h5 class="modal-title">Contact Details</h5>
+                    </div>
+                    <div class="modal-body">
+
+                        <div class="form-group">
+                            <label>Name</label>
+                            <input required id="name" type="text" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>Mobile</label>
+                            <input required id="phone" type="text" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input required id="email" type="email" class="form-control" aria-describedby="emailHelp" placeholder="Enter valid email">
+                            <small class="form-text text-muted">We'll never share your email with anyone else.</small>
+                        </div>
+                        <div class="form-group">
+                            <label>Address</label>
+                            <input required id="address" type="text" class="form-control">
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">Save</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Delete confirm modal -->
+    <div id="delete-confirm-modal" class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" style="margin:0 auto;">Are you Sure ?</h5>
+                </div>
+                <div class="modal-body">
+                    <div class="confirm-modal-btn-wrap">
+                        <button class="btn btn-danger" type="button" onclick="removeContact()">Delete it!</button>
+                        <button class="btn" type="button" data-dismiss="modal" aria-label="Close">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    
+    <!-- Custom Js -->
+    <script src="~/js/script.js"></script>
+</body>
+</html>
